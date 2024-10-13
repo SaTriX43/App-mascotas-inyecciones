@@ -1,0 +1,13 @@
+.mascotas {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  margin-top: 80px;
+  gap: 20px;
+  padding: 20px;
+
+  background-color: rgb(221, 221, 221);
+  align-items: center;
+}

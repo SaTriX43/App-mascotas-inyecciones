@@ -1,0 +1,33 @@
+.recordatorio {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+
+  margin-top: 80px;
+  gap: 20px;
+  padding: 20px;
+
+  background-color: rgb(221, 221, 221);
+
+  align-items: center;
+}
+
+.recordatorio h1 {
+  color: brown;
+}
+
+.recordatorio__contenedor-mascota {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 500px));
+  gap: 40px;
+
+
+  align-items: center;
+  justify-content: center;
+}
+
+.recordatorio__sin-contenedor-mascota {
+  display: flex;
+}

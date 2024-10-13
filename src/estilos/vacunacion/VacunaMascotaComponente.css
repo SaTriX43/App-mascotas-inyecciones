@@ -1,0 +1,61 @@
+.vacunacion__historial-componente {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 150px;
+
+  padding: 20px;
+  gap: 20px;
+
+  border: 1px solid gray;
+
+  transition: all .3s ease;
+  cursor: pointer;
+
+  align-items: center;
+}
+
+.vacunacion__historial-componente:hover .icono-trash {
+  visibility: visible;
+}
+
+
+.vacunacion__historial-componente:hover {
+  transform: translateY(-5px);
+  background-color: rgb(234, 234, 234);
+}
+
+.vacunacion__historial-componente-contenedor-img {
+  display: flex;
+  width: 100px;
+  height: 100px;
+}
+
+.vacunacion__historial-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.vacunacion__historial-componente-contenedor-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+
+@media (min-width: 750px) {
+  .vacunacion__historial-componente {
+    flex-direction: row;
+  }
+  
+  .vacunacion__historial-componente-contenedor-img {
+    width: 200px;
+    height: 150px;
+  }
+}

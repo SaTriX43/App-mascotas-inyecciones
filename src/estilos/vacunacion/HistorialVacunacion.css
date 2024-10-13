@@ -1,0 +1,26 @@
+.vacunacion__historial {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  min-height: 200px;
+
+  gap: 20px;
+  padding: 20px;
+
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px 0px gray;
+}
+
+
+.vacunacion__historial-contenedor-componentes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100px;
+  gap: 10px;
+
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,23 @@
+.recordatorio__form {
+  display: flex;
+  width: 100%;
+  height: 40px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.recordatorio__form-input {
+  display: flex;
+  width: 100%;
+  height: 40px;
+
+  padding-left: 10px;
+  padding-right: 5px;
+
+  font-size: 18px;
+}
+
+.recordatorio__form select {
+  height: 40px;
+}
