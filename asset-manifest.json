@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/App-mascotas-inyecciones/static/css/main.99fc384c.css",
+    "main.js": "/App-mascotas-inyecciones/static/js/main.1eec013c.js",
+    "static/media/fondo-animal.png": "/App-mascotas-inyecciones/static/media/fondo-animal.e4708f8d26f9ddb2e29e.png",
+    "index.html": "/App-mascotas-inyecciones/index.html",
+    "main.99fc384c.css.map": "/App-mascotas-inyecciones/static/css/main.99fc384c.css.map",
+    "main.1eec013c.js.map": "/App-mascotas-inyecciones/static/js/main.1eec013c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99fc384c.css",
+    "static/js/main.1eec013c.js"
+  ]
+}
