@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import FormularioRecordatorio from "./FormularioRecordatorio";
 import '../../estilos/Recordatorio/Recordatorio.css'
 import MascotaRecordatorio from "./MascotaRecordatorio";
@@ -10,14 +10,49 @@ function Recordatorio() {
   const {infoMascota} = useContext(InfoMascotasContext)
   const {infoVacunacionMascota} = useContext(VacunacionMascotaContext)
 
+
+  const [buscadorRecordatorio, setBuscadorRecordatorio] = useState('');
+  const [estadoRecordatorio, setEstadoRecordatorio] = useState('');
+
+  const vacunaFiltrada = infoVacunacionMascota.filter((recordatorio) => {
+    // Buscar por vacuna y nombre de mascota
+    const vacunaCoincide = recordatorio.vacuna.toLowerCase().includes(buscadorRecordatorio.toLowerCase());
+    const mascota = infoMascota.find(m => m.nombre === recordatorio.mascota);
+    const mascotaCoincide = mascota ? mascota.nombre.toLowerCase().includes(buscadorRecordatorio.toLowerCase()) : false;
+
+    // Filtrar por estado
+    const estadoCoincide = estadoRecordatorio === '' || calcularEstado(recordatorio) === estadoRecordatorio;
+
+    return (vacunaCoincide || mascotaCoincide) && estadoCoincide;
+  });
+
+  // funcion para calcular estado 
+  function calcularEstado(recordatoio) {
+    const fechaActual = new Date();
+    const fechaVacuna = new Date(recordatoio.proximaFechaVacunacion)
+
+    if(fechaActual > fechaVacuna) {
+      return 'atrasada'
+    }else if(recordatoio.realizada) {
+      return 'realizada'
+    }
+    return 'pendiente'
+  }
+
+  
   return (
     <section className="recordatorio">
-      <FormularioRecordatorio/>
+      <FormularioRecordatorio
+        buscadorRecordatorio= {buscadorRecordatorio}
+        estadoRecordatorio= {estadoRecordatorio}
+        setBuscadorRecordatorio= {setBuscadorRecordatorio}
+        setEstadoRecordatorio = {setEstadoRecordatorio}
+      />
       <h1>Proximas Vacunas</h1>
       
-        {infoVacunacionMascota.length > 0 ? (
+        {vacunaFiltrada.length > 0 ? (
           <div className="recordatorio__contenedor-mascota"> 
-            {infoVacunacionMascota.map((recordatorio)=> {
+            {vacunaFiltrada.map((recordatorio)=> {
               const mascota = infoMascota.find((m) => m.nombre === recordatorio.mascota)
               return(
                 <MascotaRecordatorio
@@ -28,6 +63,7 @@ function Recordatorio() {
                   vacuna = {recordatorio.vacuna}
                   fecha = {recordatorio.fechaAdministracion}
                   especie={mascota ? mascota.especie : ''}
+                  estado={calcularEstado(recordatorio)}
                 />
               )
             })}

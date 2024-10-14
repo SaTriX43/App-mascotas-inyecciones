@@ -73,6 +73,17 @@
   background-color: rgb(97, 27, 27);
 }   
 
+.atrasada {
+  color: red;
+}
+
+.pendiente {
+  color: rgb(138, 138, 23);
+}
+
+.realizada {
+  color: green;
+}
 
 
 @media (min-width: 750px) {

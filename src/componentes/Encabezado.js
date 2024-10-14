@@ -10,6 +10,9 @@ function Encabezado() {
   const [navActivo , setNavActivo] = useState(false)
   const {esMobil} = useContext(TamanioPantallaContext)
 
+  function handleClickBars() {
+    setNavActivo(!navActivo)
+  }
 
   return (
     <header className="encabezado">
@@ -17,9 +20,9 @@ function Encabezado() {
       <FontAwesomeIcon
         icon={faBars}
         className={`encabezado-icono ${esMobil ? '' : 'encabezado-icono-desactivado'}`}
-        onClick={() => setNavActivo(!navActivo)}
+        onClick={handleClickBars}
       />
-      <nav className={`encabezado__nav ${esMobil ? '' : 'encabezado-nav-desktop'} ${navActivo ? 'encabezado__nav-activo' : ''}`}>
+      <nav onClick={handleClickBars} className={`encabezado__nav ${esMobil ? '' : 'encabezado-nav-desktop'} ${navActivo ? 'encabezado__nav-activo' : ''}`}>
         <Link to='/' className="encabezado__nav-items">Inicio</Link>
         <Link to='/mascotas' className="encabezado__nav-items">Mascotas</Link>
         <Link to='/vacunacion' className="encabezado__nav-items">Vacunas</Link>

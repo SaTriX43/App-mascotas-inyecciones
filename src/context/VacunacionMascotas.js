@@ -63,6 +63,14 @@ function VacunacionMascotaProvider({children}) {
     }
   }
 
+  // Función para marcar una vacuna como realizada
+  function marcarComoRealizada(id) {
+    setInfoVacunacionMascota(prevVacunas => 
+      prevVacunas.map(vacuna => 
+        vacuna.id === id ? { ...vacuna, realizada: true } : vacuna
+      )
+    );
+  }
 
   return(
     <VacunacionMascotaContext.Provider value={{
@@ -80,7 +88,8 @@ function VacunacionMascotaProvider({children}) {
 
 
       guardarInfoVacuna,
-      eliminarVacuna
+      eliminarVacuna,
+      marcarComoRealizada
     }}>
       {children}
     </VacunacionMascotaContext.Provider>
